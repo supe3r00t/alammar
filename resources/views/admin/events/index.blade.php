@@ -9,6 +9,18 @@
     }
 </style>
 <table>
+
+
+    <div class="card" style="width: 10rem;">
+        <div class="card-body">
+            <h5 class="card-title">انشاء احداث</h5>
+            <a href="{{route('events.events')}}" class="btn btn-secondary stretched-link">Create</a>
+        </div>
+    </div>
+
+
+
+
     <tr>
         <th scope="col">انتقال </th>
         <th scope="col">نوع الحدث</th>
@@ -17,7 +29,6 @@
         <th scope="col">عدد الضيوف المسموح</th><br>
         <th scope="col">تعديل</th>
         <th scope="col">حذف</th>
-
 
 
 

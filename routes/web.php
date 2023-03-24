@@ -14,7 +14,7 @@ Route::get('/events/events', [EventController::class, 'events'])
     ->name('events.events');
 Route::get('/events/workshop', [EventController::class, 'workshops'])
     ->name('events.workshop');
-Route::get('/{events}/create', [EventController::class, 'create'])
+Route::get('/events/create', [EventController::class, 'create'])
     ->name('events.create')->middleware('auth');
 Route::post('/events/store', [EventController::class, 'store'])
     ->name('events.store');
@@ -39,6 +39,7 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('admin');
+
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('events', [\App\Http\Controllers\Admin\EventController::class, 'index'])->name('events.index'); // admin.index;

@@ -19,6 +19,8 @@ class EventController extends Controller
     }
 
     public function edit(Event $event){
+
+
         return view('admin.events.edit', compact('event'));
     }
     public function update(Event $event){
@@ -34,11 +36,10 @@ class EventController extends Controller
     }
 
 
-public function destroy($id){
+public function destroy($event){
 
-        Event::destroy($id);
-
-        return redirect()->route('events.index');
+       Event::destroy($event);
+        return redirect()->route('admin.events.index');
 }
 
 

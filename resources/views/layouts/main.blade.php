@@ -158,6 +158,16 @@
                                 </div>
                             @endif
                         @endguest
+                        @auth
+                            @if (Route::has('login'))
+                                <div class="language-switcher-language-url" id="block-languageswitcher" role="navigation">
+                                    <ul class="links"><li hreflang="en" data-drupal-link-system-path="&lt;front&gt;"><a href="{{ route('admin.events.index') }}" class="language-link" hreflang="en" data-drupal-link-system-path="&lt;front&gt;">لوحة التحكم</a></li><li hreflang="ar" data-drupal-link-system-path="&lt;front&gt;" class="is-active"><a href="/ar" class="language-link is-active" hreflang="ar" data-drupal-link-system-path="&lt;front&gt;">عربي</a></li></ul>
+                                </div>
+                                <div class="language-switcher-language-url" id="block-languageswitcher" role="navigation">
+                                    <ul class="links"><li hreflang="en" data-drupal-link-system-path="&lt;front&gt;"><a href="{{ route('events.create') }}" class="language-link" hreflang="en" data-drupal-link-system-path="&lt;front&gt;">انشاء حدث</a></li><li hreflang="ar" data-drupal-link-system-path="&lt;front&gt;" class="is-active"><a href="/ar" class="language-link is-active" hreflang="ar" data-drupal-link-system-path="&lt;front&gt;">عربي</a></li></ul>
+                                </div>
+                            @endif
+                        @endauth
                         <img src="https://www.mu.edu.sa/themes/custom/mu_theme/images/accredited.png" alt="" class="accredited-logo">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             &#9776;

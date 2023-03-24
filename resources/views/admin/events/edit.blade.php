@@ -1,7 +1,7 @@
 {{$event->title}}
 
 
-<form action="{{route('admin.events.update',$event->id)}}" method="post">
+<form action="{{route('admin.events.update',$event->id)}}" method="POST">
     @csrf
     <input type="text" name="title" placeholder="عنوان الفعالية"><br>
     <div>
