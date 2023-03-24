@@ -37,7 +37,7 @@ Route::get('/', function () {
 
 
 Route::get('/admin', function () {
-    return view('dashboard');
+    return view('events.index');
 })->middleware(['auth', 'verified'])->name('admin');
 
 
