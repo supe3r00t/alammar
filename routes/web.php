@@ -35,6 +35,12 @@ Route::get('/', function () {
 });
 
 
+Route::get('/dashboard', function () {
+    return view('events.index');
+});
+
+
+
 
 Route::get('/admin', function () {
     return view('events.index');
