@@ -14,7 +14,7 @@
     <div class="card" style="width: 10rem;">
         <div class="card-body">
             <h5 class="card-title">انشاء احداث</h5>
-            <a href="{{route('events.events')}}" class="btn btn-secondary stretched-link">Create</a>
+            <a href="{{route('events.create')}}" class="btn btn-secondary stretched-link">Create</a>
         </div>
     </div>
 
