@@ -41,7 +41,7 @@
             <td>{{$event->end_date}}</td>
             <td>{{$event->max_guests}}</td>
             <td><a href="{{route('admin.events.edit', $event)}}">edit</a></td>
-            <td><a href="{{route('admin.events.destroy', $event)}}">Delete</a></td>
+            <td><a href="{{route('admin.events.delete', $event)}}">Delete</a></td>
 
 
         </tr>

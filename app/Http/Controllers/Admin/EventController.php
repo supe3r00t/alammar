@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -36,12 +37,12 @@ class EventController extends Controller
     }
 
 
-public function destroy($event){
+public function delete($event)
+{
 
-       Event::destroy($event);
-        return redirect()->route('admin.events.index');
+    DB::table('events')->where('id', $event)->delete();
+    return back();
 }
-
 
 
 
