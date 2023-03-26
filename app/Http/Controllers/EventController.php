@@ -77,6 +77,8 @@ class EventController extends Controller
         Event::create([
 
           'title'=> $request->title,
+        'workshop'=>$request->workshop,
+        'event'=>$request->event,
         'start_date' =>$request->start_date,
         'end_date'=>$request->end_date,
        'max_guests'=>$request->max_guests,
