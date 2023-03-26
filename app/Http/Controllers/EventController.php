@@ -118,4 +118,15 @@ class EventController extends Controller
 
     }
 
+
+
+    public function edit(Event $event){
+
+
+        return view('admin.events.edit', compact('event'));
+    }
+    public function update(Event $event){
+        $event->update(request()->all());
+        return back();
+    }
 }

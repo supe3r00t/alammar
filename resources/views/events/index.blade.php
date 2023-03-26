@@ -10,7 +10,7 @@
             <div class="card" style="width: 10rem;">
                 <div class="card-body">
                     <h5 class="card-title">لقاءات العمل</h5>
-                    <a href="{{route('events.events')}}" class="btn btn-secondary stretched-link">Events</a>
+                    <a href="{{route('events.events')}}" class="btn btn-secondary stretched-link">{{ __('Events') }}</a>
                 </div>
             </div>
 
@@ -19,7 +19,7 @@
             <div class="card" style="width: 10rem;">
                 <div class="card-body">
                     <h5 class="card-title">ورش  العمل</h5>
-                    <a href="{{route('events.workshop')}}" class="btn btn-secondary stretched-link">Workshop</a>
+                    <a href="{{route('events.workshop')}}" class="btn btn-secondary stretched-link">{{ __('Workshop') }}</a>
                 </div>
             </div>
 
