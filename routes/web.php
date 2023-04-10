@@ -52,10 +52,10 @@ Route::get('/admin', function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('events', [\App\Http\Controllers\Admin\EventController::class, 'index'])->name('events.index'); // admin.index;
-    Route::post('events/{event}', [\App\Http\Controllers\Admin\EventController::class, 'show'])->name('events.show');
+    Route::get('events/{event}', [\App\Http\Controllers\Admin\EventController::class, 'show'])->name('events.show');
     Route::get('events/{event}/edit', [\App\Http\Controllers\Admin\EventController::class, 'edit'])->name('events.edit');
-    Route::patch('events/{event}', [\App\Http\Controllers\Admin\EventController::class, 'update'])->name('events.update');
-  Route::get('events/delete/{id}',[\App\Http\Controllers\Admin\EventController::class,'delete'])->name('events.delete');
+    Route::post('events/{event}', [\App\Http\Controllers\Admin\EventController::class, 'update'])->name('events.update');
+    Route::get('events/delete/{id}',[\App\Http\Controllers\Admin\EventController::class,'delete'])->name('events.delete');
     Route::post('events/{event},', [\App\Http\Controllers\Admin\EventController::class, 'store'])->name('events.store');
 
 });

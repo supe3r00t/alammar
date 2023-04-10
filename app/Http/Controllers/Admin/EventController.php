@@ -19,10 +19,10 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
-    public function edit(Event $event){
+    public function edit($id){
 
-
-        return view('admin.events.edit', compact('event'));
+        $event = Event::findorfail($id);
+        return  view('admin.events.edit',compact('event'));
     }
     public function update(Event $event){
         $event->update(request()->all());
@@ -37,12 +37,12 @@ class EventController extends Controller
     }
 
 
-public function delete($event)
-{
+    public function delete($event)
+    {
 
-    DB::table('events')->where('id', $event)->delete();
-    return back();
-}
+        DB::table('events')->where('id', $event)->delete();
+        return back();
+    }
 
 
 

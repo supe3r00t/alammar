@@ -10,9 +10,9 @@ class Event extends Model
     use HasFactory;
 
 
-    protected $fillable = ['title', 'start_date', 'end_date', 'max_guests', 'type'];
+    protected $fillable = ['title','start_date','end_date','max_guests','type'];
     public function guests(){
-        return $this->hasMany(Guest::class);
-    }
 
+        return $this->hasMany(guest::class);
+    }
 }

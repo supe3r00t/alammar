@@ -166,6 +166,14 @@
                                 <div class="language-switcher-language-url" id="block-languageswitcher" role="navigation">
                                     <ul class="links"><li hreflang="en" data-drupal-link-system-path="&lt;front&gt;"><a href="{{ route('events.create') }}" class="language-link" hreflang="en" data-drupal-link-system-path="&lt;front&gt;">انشاء حدث</a></li><li hreflang="ar" data-drupal-link-system-path="&lt;front&gt;" class="is-active"><a href="/ar" class="language-link is-active" hreflang="ar" data-drupal-link-system-path="&lt;front&gt;">عربي</a></li></ul>
                                 </div>
+                               
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <div class="language-switcher-language-url" id="block-languageswitcher" role="navigation">
+                                        <ul class="links"><li hreflang="en" data-drupal-link-system-path="&lt;front&gt;"><a href="{{ route('logout') }}" class="language-link" hreflang="en" data-drupal-link-system-path="&lt;front&gt;"> تسجيل خروج</a></li><li hreflang="ar" data-drupal-link-system-path="&lt;front&gt;" class="is-active"><a href="/ar" class="language-link is-active" hreflang="ar" data-drupal-link-system-path="&lt;front&gt;">عربي</a></li></ul>
+                                    </div>
+                                </form>
                             @endif
                         @endauth
                         <img src="https://www.mu.edu.sa/themes/custom/mu_theme/images/accredited.png" alt="" class="accredited-logo">

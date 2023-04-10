@@ -7,20 +7,30 @@
 
 
 
-    <h1>{{$event->title}}</h1>
-<h4>{{$event->start_date}}</h4>
-<h4>{{$event->end_date}}</h4>
-<h4>{{$event->max_guests}}</h4>
 
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <h5> الفعالية</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> <h2>اسم الفعالية:  {{$event->title}}</h2></li>
+            <li class="list-group-item"> تاريخ البداية:  {{$event->start_date}}</li>
+            <li class="list-group-item"> تاريخ النهاية:  {{$event->start_date}}</li>
+            <li class="list-group-item"> عدد الزوار المسموح به:  {{$event->max_guests}}</li>
 
+        </ul>
+    </div>
 @foreach($errors->all() as $error)
     <div>{{$error}}</div>
 @endforeach
 @if($event->guests->count() < $event->max_guests)
     <form method="post" action="{{route('events.signup', $event)}}">
         @csrf
+
+
+
         <div>
-            <label for="name">Name:</label>
+            <label for="name">اسم الزائر:</label>
             <select name="title" id="">
                 <option value="mr">Mr</option>
                 <option value="mrs">Mrs</option>
