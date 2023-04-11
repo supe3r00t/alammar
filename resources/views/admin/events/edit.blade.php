@@ -8,6 +8,7 @@
     <div>
 
         <select class="form-select" name="type">
+            //الاف الشرطية لحفظ الايفنت عند تعديل
             <option value="event" @if($event->type === 'event') selected @endif>لقائات عمل</option>
             <option value="workshop" @if($event->type === 'workshop') selected @endif>ورش عمل</option>
         </select>

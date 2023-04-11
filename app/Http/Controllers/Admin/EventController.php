@@ -26,14 +26,12 @@ class EventController extends Controller
 
     }
     public function update(Event $event){
-        $event->update(request()->all()); // ['column' => 'value', 'column2' => 'value']
+        $event->update(request()->all());
         return redirect()->route('admin.events.index');
 
     }
     public function create(){
-//        $event = Event::create(request()->all());
-//        return redirect()->route('admin.events.create',);
-//        return view('admin.events.create');
+
     }
     public function show(Event $event){
         return view('admin.events.show', compact('event'));

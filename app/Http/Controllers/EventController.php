@@ -10,8 +10,6 @@ class EventController extends Controller
 
     public function index()
     {
-        // select * from events where COLUMN = VALUE
-        // select * from events where start_date <= 2023-12-12 12:12:12 and end_date >= $now
         $now = now()->format('Y-m-d H:i:s');
 
 
@@ -35,20 +33,15 @@ class EventController extends Controller
         ]);
 
         $now = now()->format('Y-m-d H:i:s');
-        // كم عدد الضيوف في هذا الحدث
         $guestsCount = $event->guests->count();
-        // كم عدد الهواتف المسجلة بنفس الرقم المرسل
-        // select count(*) from guests where phone = request('phone')
-        // $_POST['phone']
-        // نجدول جدول الضيوف في الفعالية ثم نفلتر حسب رقم الجوال وبعدها نحسب العدد
         $phoneExist = $event->guests()->where('phone', request('phone'))->count();
 
         if (
             $guestsCount < $event->max_guests
             && $phoneExist === 0
-            && $event->start_date <= $now // تاريخ البداية اصغر من الآن حتى مايجيب شيء مافتح
-            && $event->end_date >= $now // تاريخ النهاية اكبر من الآن حتى مايجيب شيء منتهي
-        ) {
+            && $event->start_date <= $now
+            && $event->end_date >= $now
+                    ) {
             $event->guests()->create(request()->all());
             return back();
         } else {
@@ -88,7 +81,6 @@ class EventController extends Controller
     public function workshops(Event $workshop)
     {
         $now = now()->format('Y-m-d H:i:s');
-        // select * from events where start_date <= $now;
         $workshops = Event::where('start_date', '<=', $now)
             ->where('end_date', '>=', $now)->where('type', 'workshop')->get();
 
@@ -98,13 +90,11 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        // تشيك على الوقت اذا كان يساوي نفس تاريخ
         $now = now()->format('Y-m-d H:i:s');
         if ($event->start_date <= $now
             && $event->end_date >= $now) {
             return view('events.show', compact('event'));
         } else {
-            // في حال عدم تحقق الشرط، نرجع للصفحة الرئيسية لعرض الأحداث
             return redirect()->route('events.index');
         }
     }
@@ -119,19 +109,12 @@ class EventController extends Controller
 
 
 
-//
-//    public function update(Request $request, Event $event)
-//    {
-//        //
-//    }
 
 
     public function events()
     {
 
         $now = now()->format('Y-m-d H:i:s');
-//    $event = Event::where('start_date', '<=', $now)
-//        ->where('end_date', '>=', $now)->where('type', 'event')->get();
 
         $name = 'Ahmad';
         $events = Event::where('start_date', '<=', $now)

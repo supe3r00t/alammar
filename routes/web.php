@@ -48,27 +48,6 @@ Route::get('/dashboard', function () {
 Route::get('/admin', function () {
     return view('events.index');
 })->middleware(['auth', 'verified'])->name('admin');
-/**
- * abdulmogeeb mohammed
- * prefix before main url
- * events/create
- * events/show
- * events/edit
- * events/delete
- *
- * group prefix => x
- *  create => x/create
- *  show => x/show
- *  edit
- *  delete
- */
-
-/*
- * get = view
- * post = put, patch, delete => تغيير شيء في البيانات
- * put = تحديث مدخل واحد
- * patch = تحديث مدخلات كثيرة
- */
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('events', [\App\Http\Controllers\Admin\EventController::class, 'index'])->name('events.index'); // admin.index;
