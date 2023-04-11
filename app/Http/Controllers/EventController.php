@@ -10,9 +10,14 @@ class EventController extends Controller
 
     public function index()
     {
+        // select * from events where COLUMN = VALUE
+        // select * from events where start_date <= 2023-12-12 12:12:12 and end_date >= $now
         $now = now()->format('Y-m-d H:i:s');
+
+
         $events = Event::where('start_date', '<=', $now)
-            ->where('end_date', '>=', $now)->where('type', 'event')->get();
+            ->where('end_date', '>=', $now)
+            ->where('type', 'event')->get();
 
         $workshops = Event::where('start_date', '<=', $now)
             ->where('end_date', '>=', $now)->where('type', 'workshop')->get();
@@ -33,11 +38,14 @@ class EventController extends Controller
         // كم عدد الضيوف في هذا الحدث
         $guestsCount = $event->guests->count();
         // كم عدد الهواتف المسجلة بنفس الرقم المرسل
+        // select count(*) from guests where phone = request('phone')
+        // $_POST['phone']
+        // نجدول جدول الضيوف في الفعالية ثم نفلتر حسب رقم الجوال وبعدها نحسب العدد
         $phoneExist = $event->guests()->where('phone', request('phone'))->count();
 
         if (
             $guestsCount < $event->max_guests
-            && !$phoneExist
+            && $phoneExist === 0
             && $event->start_date <= $now // تاريخ البداية اصغر من الآن حتى مايجيب شيء مافتح
             && $event->end_date >= $now // تاريخ النهاية اكبر من الآن حتى مايجيب شيء منتهي
         ) {
@@ -64,8 +72,7 @@ class EventController extends Controller
         Event::create([
 
             'title' => $request->title,
-            'workshop' => $request->workshop,
-            'event' => $request->event,
+            'type' => $request->type,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'max_guests' => $request->max_guests,
@@ -110,11 +117,6 @@ class EventController extends Controller
         return view('admin.events.edit', compact('event'));
     }
 
-    public function update(Event $event)
-    {
-        $event->update(request()->all());
-        return back();
-    }
 
 
 //

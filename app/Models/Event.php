@@ -13,6 +13,6 @@ class Event extends Model
     protected $fillable = ['title','start_date','end_date','max_guests','type'];
     public function guests(){
 
-        return $this->hasMany(guest::class);
+        return $this->hasMany(Guest::class);
     }
 }

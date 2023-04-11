@@ -3,12 +3,13 @@
 
 <form action="{{route('admin.events.update',$event->id)}}" method="POST">
     @csrf
+    @method('patch')
     <input type="text" name="title" value="{{$event->title}}"><br>
     <div>
 
-        <select class="form-select" aria-label="type">
-            <option value="1">لقائات عمل</option>
-            <option value="2">ورش عمل</option>
+        <select class="form-select" name="type">
+            <option value="event" @if($event->type === 'event') selected @endif>لقائات عمل</option>
+            <option value="workshop" @if($event->type === 'workshop') selected @endif>ورش عمل</option>
         </select>
         <label for="start_date"> تاريخ بداء الحدث :</label>
         <input type="start_date"  name="start_date" value="{{$event->start_date}}">

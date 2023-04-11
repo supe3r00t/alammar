@@ -9,9 +9,9 @@
     <input type="text" name="title" placeholder="عنوان الفعالية"><br>
     <div>
 
-        <select class="form-select" aria-label="type">
-            <option value="1">لقائات عمل</option>
-            <option value="2">ورش عمل</option>
+        <select class="form-select" aria-label="type" name="type">
+            <option value="event">لقائات عمل</option>
+            <option value="workshop">ورش عمل</option>
         </select>
         <label for="start_date"> تاريخ بداء الحدث :</label>
         <input type="date" id="start_date" name="start_date">

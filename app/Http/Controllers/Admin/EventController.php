@@ -23,24 +23,28 @@ class EventController extends Controller
 
         $event = Event::findorfail($id);
         return  view('admin.events.edit',compact('event'));
+
     }
     public function update(Event $event){
-        $event->update(request()->all());
-        return back();
+        $event->update(request()->all()); // ['column' => 'value', 'column2' => 'value']
+        return redirect()->route('admin.events.index');
+
     }
     public function create(){
-        $event = Event::create(request()->all());
-        return redirect()->route('admin.events.create',);
+//        $event = Event::create(request()->all());
+//        return redirect()->route('admin.events.create',);
+//        return view('admin.events.create');
     }
     public function show(Event $event){
         return view('admin.events.show', compact('event'));
     }
 
 
-    public function delete($event)
+    public function delete(Event $event)
     {
 
-        DB::table('events')->where('id', $event)->delete();
+        $event->delete();
+//        DB::table('events')->where('id', $event)->delete();
         return back();
     }
 
