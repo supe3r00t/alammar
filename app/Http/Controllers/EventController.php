@@ -116,7 +116,6 @@ class EventController extends Controller
 
         $now = now()->format('Y-m-d H:i:s');
 
-        $name = 'Ahmad';
         $events = Event::where('start_date', '<=', $now)
             ->where('end_date', '>=', $now)->where('type', 'event')->get();
 
