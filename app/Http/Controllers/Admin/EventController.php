@@ -42,7 +42,6 @@ class EventController extends Controller
     {
 
         $event->delete();
-//        DB::table('events')->where('id', $event)->delete();
         return back();
     }
 
